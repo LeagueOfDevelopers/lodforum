@@ -1,22 +1,23 @@
 <?php
 class Route{
 	static function start(){
+		echo "WRwwer";
 		$controller_name = "Main";
 		$action_name = 'index';
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
 		//ПОЛУЧАЕМ ИМЯ КОНТРОЛЛЕРА
-		if(!empty($routes[2])){
-			$controller_name = $routes[2];
+		if(!empty($routes[3])){
+			$controller_name = $routes[3];
 		}
 		//ПОЛУЧАЕМ ИМЯ ДЕЙСТВИЯ-ЭКШЕНА
-		if(!empty($routes[3])){
-			$action_name= $routes[3];
+		if(!empty($routes[4])){
+			$action_name= $routes[4];
 		}
 
 		//ПРОЦЕСС ДОБАВЛЕНИЯ ПРЕФИКСОВ
 		$model_name = 'Model_'.$controller_name;
 		$controller_name = 'Controller_'.$controller_name;
-		$action_name = 'action_'.$action_name;
+		//$action_name = 'action_'.$action_name;
 		//ТЕПЕРЬ ПОДКЛЮЧАЕМ ФАЙЛЫ-КЛАССЫ: МОДЕЛЬ-КОНТРОЛЛЕР
 		//СНАЧАЛА МОДЕЛЬ
 		$model_file = strtolower($model_name).'.php';
@@ -38,14 +39,14 @@ class Route{
 		}
 		$controller = new $controller_name;
 		$action = $action_name;
-
+		$controller->action_index($action);
 		//ЕСЛИ ЮЗЕР ОШИБСЯ, НО УЖЕ ВО ВТОРОЙ ЧАСТИ УРЛА
-		if(method_exists($controller, $action)){
-			$controller->$action();
-		}
-		else{
-			Route::ErrorPage404();
-		}
+		// if(method_exists($controller, $action)){
+		// 	$controller->$action();
+		// }
+		// else{
+		// 	Route::ErrorPage404();
+		// }
 	}
 	
 	static function ErrorPage404(){

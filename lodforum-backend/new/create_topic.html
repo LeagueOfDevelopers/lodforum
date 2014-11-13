@@ -1,5 +1,6 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,11 +12,11 @@
     <title>Форум Лиги Разработчиков</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="navbar-fixed-top.css" rel="stylesheet">
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="dashboard.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -80,14 +81,37 @@
             </ul>
         </div>
     </div>
-
-
-	<?php include 'application/views/'.$content_view; ?>
-
-
-
-    <div class="footer" style="border-top: 1px solid #ecf0f1;   ">
-    League of Developers — 2014.
+</nav>
+<div class="container">
+<div class="col-md-8">
+    <h1 class="page-header">Создание новой темы в разделе <b>Разработка ПО</b></h1>
+        <ol class="breadcrumb">
+        <li><a href="">Форум</a></li>
+        <li><a href="">Раздел 1</a></li>
+        <li class="active">Новая тема</li>
+    </ol>
+    <form action="" method="post">
+        <div class="alert alert-info" role="alert">
+            <h4> Обратите внимание!</h4>
+            Ссылки на внешние источники определяются автоматически. Для выделения фрагмента текста жирным, наклонным шрифтом или подчеркиванием используйте теги < b >, < i >, < u > соответственно. Для выделения исходного кода используйте < code >
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Название темы</span>
+            <input type="text" class="form-control" placeholder="" required>
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon">Описание вашей темы</span>
+            <textarea class="form-control" placeholder="" required></textarea>
+        </div>
+        <br>
+        <input type="submit" value="Создать" class="btn btn-primary">
+    </form>
+</div>
+</div>
+<br>
+    <div class="footer" style="border-top: 1px solid #ecf0f1;">
+        
     <div class="pull-right" style="display: inline-block;">
         <ul class="nav nav-pills">
             <li><a href="/about">О нас</a></li>
@@ -97,7 +121,7 @@
         </ul>
     </div>
 </div>
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
